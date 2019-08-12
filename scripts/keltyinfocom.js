@@ -3,7 +3,8 @@ var sections = [
 	".*cv.*|.*bio.*|.*curriculum vitae.*",
 	"#bio"
 
-      ],    
+      ],
+    
     [
 	".*photo.*|.*image.*|.*picture.*",
 	"#photo"
@@ -22,7 +23,7 @@ var sections = [
 	"#publications"
     ],
     [
-	"^info$|.*who are you.*|.*information.*|.*working on.*|.*contact.*|.*email.*",
+	"^info$|.*who are you.*|.*information.*|.*working on.*",
 	"#info"
     ]
         
@@ -136,7 +137,11 @@ var brain = [
 	
     ],
     [".*orcs.*",
-    "From nowhere, an incredibly ugly and vicious orc appears and kills you. Perhaps you should try the  <a href='http://kelty.org/kelty.html'>normal website</a> instead."],
+     "From nowhere, an incredibly ugly and vicious orc appears and kills you. Perhaps you should try the  <a href='http://kelty.org/kelty.html'>normal website</a> instead."],
+    ["xyzzy", "You have entered cheat mode.  Would you like to a) get publications; b) Join one of the Kelty cults in exchange for your soul; or c) move instantly to a tenured job at a far away university?"],
+    ["a","That key has been disabled by management. Nothing to see here move along"],
+    ["b","Oooh, I wouldn't press that if I were you","Really?", "You have been annihilated by a horde of zombie academics, return to the beginning of the chapter"],
+    ["c","That way lies madness."],
     [
 	"^(?:observe |view |look |read |)(.*)(?:computer.*)",
 	"It's a computer with lots of windows open.  The man is switching between them and typing something inscrutable.",
