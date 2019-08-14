@@ -1,20 +1,20 @@
 var sections = [
     [
-	".*cv.*|.*bio.*|.*curriculum vitae.*",
+	".*cv.*|.*bio.*|.*curriculum vitae.*|.*working on.*",
 	"#bio"
 
-      ],
-    
+    ],    
     [
 	".*photo.*|.*image.*|.*picture.*",
 	"#photo"
     ],
+    
     [
 	".*class.*|.*course.*|.*syllab.*|.*lectures.*",
 	"#classes"
     ],
     [
-	".*two bits.*",
+	".*two bits.*|.*participation.*|.*participant.*",
 	"#books"
 	
     ],
@@ -23,7 +23,7 @@ var sections = [
 	"#publications"
     ],
     [
-	"^info$|.*who are you.*|.*information.*|.*working on.*",
+	"^info$|.*who are you.*|.*information.*|.*working on.*|^about$|^who is chris.*|ask man for name|.*contact.*|.*address.*|$who is the man.*|^where is.*",
 	"#info"
     ]
         
@@ -39,6 +39,14 @@ var brain = [
     [    ".*website.*|.*web-page.*|.*web-site.*|.*homepage.*|.*home-page.*|.*home page.*",
     	 "Perhaps just the <a href='http://kelty.org/kelty.html'>normal website</a> then?"
     ],
+[
+ 	".*eliza.*",
+	"I am sorry to hear you are depressed. Tell me more about your family."
+    ],
+    [
+	"^are you there.*",
+	"(Are you addressing the man? He seems to be working hard on something.  Or maybe he's just ignoring you)."
+    ],
     [
 	".*twitter.*",
 	"Oh, if you must, it is \@ckelty. But don't expect much."
@@ -50,6 +58,10 @@ var brain = [
     [
 	"^stay$",
 	"How long?"
+    ],
+    [
+	"^asdf$",
+	"A fine keyboard you have there, try using simple two word commands"
     ],
     [
 	".*help.*|^h$",
@@ -126,8 +138,9 @@ var brain = [
     ],    
     [
 	"^look$|^look around$",
-	"It's prett much as it was described.",
-	"Not much has changed; a desk, computer, coffee cup, paper, books."
+	"It's pretty much as it was described.",
+	"Not much has changed; a desk, computer, coffee cup, paper, books.",
+	"Not much has changed since the last description.  There is now more text on the screen though."
     ],
     [
 	"(.+)(?:look |inspect |observe |see |view |read)(.*)(?:paper)",
@@ -136,17 +149,63 @@ var brain = [
 	"It's a CV. Maybe try 'read cv' or 'read bio'?"
 	
     ],
-    [".*orcs.*",
-     "From nowhere, an incredibly ugly and vicious orc appears and kills you. Perhaps you should try the  <a href='http://kelty.org/kelty.html'>normal website</a> instead."],
-    ["xyzzy", "You have entered cheat mode.  Would you like to a) get publications; b) Join one of the Kelty cults in exchange for your soul; or c) move instantly to a tenured job at a far away university?"],
-    ["a","That key has been disabled by management. Nothing to see here move along"],
-    ["b","Oooh, I wouldn't press that if I were you","Really?", "You have been annihilated by a horde of zombie academics, return to the beginning of the chapter"],
-    ["c","That way lies madness."],
+    
+    [
+	".*orcs.*",
+	"From nowhere, an incredibly ugly and vicious orc appears and kills you. Perhaps you should try the  <a href='http://kelty.org/kelty.html'>normal website</a> instead."
+    ],
+
+    [
+	"xyzzy", "You have entered cheat mode.  Would you like to a) get publications; b) Join one of the Kelty cults in exchange for your soul; or c) move instantly to a tenured job at a far away university?"
+    ],
+    [
+	"^a$",
+	"Tht key hs been disbled by mngement."
+    ],
+    [
+	"^b$",
+	"Oooh, I wouldn't press that if I were you",
+	"Really?",
+	"You have been annihilated by a horde of zombie academics, return to the beginning of the chapter"
+    ],
+    
+    [
+	"^c$",
+	"That way lies madness."
+    ],
+
+    [
+	".*dance.*",
+	"If you are asking the man to dance, it may be too early---or too late---in your relationship with him.  Maybe start slower?"
+    ],
     [
 	"^(?:observe |view |look |read |)(.*)(?:computer.*)",
 	"It's a computer with lots of windows open.  The man is switching between them and typing something inscrutable.",
 	"The computer screen is displaying what appears to be a website structured as an old-fashioned text adventure game of very primitive construction.",
 	"The computer screen is filled with gobbledygook."
+	
+    ],
+    [
+	"^close (.*)door.*|^close (.*)window.*",
+	"The man opens it again and glares discontentedly at you.",
+	"Ooh that's a little creepy don't you think. I mean, do you know this guy?"
+    ],
+    [
+	"^computer$",
+	"Are you addressing the computer?  It appears to be a late model Macintosh, not the USS Enterprise."
+    ],
+    [
+	"^how old are you.*|^how old (.*)man.*",
+	"That fact you can discern yourself from this very website, using a bit of subtraction."
+
+    ],
+    [
+	"^hug (.*)man.*",
+	"In this day and age, the man prefers to keep everything to a simple handshake."
+    ],
+    [
+	"^i (hate|love) you.*",
+	"Strong emotions.  The man gives you a look of sympathy, as if he would like to reciprocate, but then goes back to typing."
     ],
     [
 	"^(?:get |take |look |browse )(.*)(?:book.*)",
@@ -155,7 +214,7 @@ var brain = [
 	"All these books look pretty predictable, you might have more luck at your library."
     ],
     [
-	"^(?:get |take |break |turn off |smash |hit |grab |steal )(.*)(?:computer.*)",
+	"^(?:get |take |break |turn off |smash |hit |slap |grab |steal )(.*)(?:computer.*)",
 	"That seems like a very bad idea.",
 	"You head for the computer, but the man turns towards you and says 'Really?'"
     ],
@@ -184,7 +243,7 @@ var brain = [
 	
     ],
     [
-	"^(?:get |touch |hit |punch |kick |attack )(.*)(?:man.*)",
+	"^(?:get |touch |hit |punch |kick |slap |attack )(.*)(?:man.*)",
 	"Gosh, that seems a bit dangerous, maybe you should have a conversation first.",
 	"Really? I think the best you could do would be to say hello."
     ],
@@ -213,11 +272,53 @@ var brain = [
 	"$1 is a beautiful number."
     ],
 
+
     [
-	"^i$|^inventory$|^list$",
-	"You have:<br /> 1. no tea <br />2. a splitting headache."
+	"^run$|^pwd$|^ls$|^man$|^list$|^dir$|^cat$|^cd$|chdir$|^clear$",
+	"It's actually not a command line, it's a prompt in a game.",
+	"Ah, a partisan of the command line, I see.  Alas, the man is monolingual"
+	
+    ],
+    [
+	".*thank you.*",
+	"The man replies, 'You are most welcome,' and returns to typing"
     ],
     
+    [
+	"^i$|^inventory$|^list$",
+	"You are carrying one or more of the following:  a copy of <i>Two Bits</i>, a student ID card, an application for a post-doctoral position, a request for a letter of recommendation, a can of spam, a jewel-encrusted egg, and two US dollars",
+	"You have:<br /> 1. no tea <br />2. a splitting headache."
+    ],
+    [
+	".*zork.*",
+	"It is pitch black. You are likely to be eaten by a grue.",
+	"oh no! you have walked into the slavering fangs of a grue.",
+	"This is part of a maze of twisty little passages, all alike."
+	
+    ],
+    
+    [
+	"^why (.*)$",
+	"Why is the sky blue, why do birds suddenly appear, why ask why?",
+	"Why not? (You knew that was coming didn't you)"	
+	
+    ],
+    
+    [
+	"^look (.*)door$",
+	"There is a sign on the door."
+    ],
+    
+    [
+	"^read (.*)sign$",
+	"The sign says 'Christopher Kelty, Professor. Office Hours by Appointment. LSB 3314'"
+    ],
+    [
+	"^get (.*)$",
+	"You cannot get the $1.",
+	"the $1 is nailed down.",
+	"You are carrying too much to get the $1."
+    ],
     [
     	"(.+)",
     	"'$1' is not something I understand.",
