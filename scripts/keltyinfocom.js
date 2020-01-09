@@ -14,11 +14,6 @@ var sections = [
 	"#classes"
     ],
     [
-	".*two bits.*|.*participation.*|.*participant.*",
-	"#books"
-	
-    ],
-    [
 	".*publication.*|.*article.*|.*papers.*",
 	"#publications"
     ],
@@ -39,13 +34,26 @@ var brain = [
     [    ".*website.*|.*web-page.*|.*web-site.*|.*homepage.*|.*home-page.*|.*home page.*",
     	 "Perhaps just the <a href='http://kelty.org/kelty.html'>normal website</a> then?"
     ],
-[
+    [
  	".*eliza.*",
 	"I am sorry to hear you are depressed. Tell me more about your family."
     ],
     [
 	"^are you there.*",
 	"(Are you addressing the man? He seems to be working hard on something.  Or maybe he's just ignoring you)."
+    ],
+    [
+	"^(?:get |take |look |browse |buy )(.*)(?:book.*)",
+	"The man turns around and a bit too eagerly asks, 'would you like me to sign that?' He grabs the book, scribbles something illegible in it and then hands it back to you, beaming. You can <a href='https://www.press.uchicago.edu/ucp/books/book/chicago/P/bo44520895.html'>buy them</a> if you want.",
+	"'That old thing?' The man says solicitously.  'Here, let me inscribe a copy for you' he says as he writes in the book and then hands it to you. They make a <a href='https://www.press.uchicago.edu/ucp/books/book/chicago/P/bo44520895.html'>great gift</a>." 
+    ],
+    [
+	"^(?:read )(.*)(?:book.*)", "Are you sure you want to do that?  Well, OK.  Several hours later you re-assess your priorities and decide that academia is not for you.",
+	"You find yourself strangely engrossed and decide to visit your <a href='https://www.press.uchicago.edu/ucp/books/book/chicago/P/bo44520895.html'>favorite bookseller</a> in order to buy a copy."
+    ],
+    [
+    "^(?:steal )(.*)(?:book.*)",
+	"The man looks around, and then with a surreptitous air of complicity, hands you a piece of paper with an <a href='http://gen.lib.rus.ec/search.php?req=christopher+kelty&open=0&res=25&view=simple&phrase=1&column=def'>address on it</a>. "
     ],
     [
 	".*twitter.*",
@@ -207,25 +215,25 @@ var brain = [
 	"^i (hate|love) you.*",
 	"Strong emotions.  The man gives you a look of sympathy, as if he would like to reciprocate, but then goes back to typing."
     ],
-    [
-	"^(?:get |take |look |browse )(.*)(?:book.*)",
-	"Most of the books appear to be from the 1990s.",
-	"There are a lot of books.  Not sure where to start.",
-	"All these books look pretty predictable, you might have more luck at your library."
-    ],
+    // [
+    // 	"^(?:get |take |look |browse )(.*)(?:book.*)",
+    // 	"Most of the books appear to be from the 1990s.",
+    // 	"There are a lot of books.  Not sure where to start.",
+    // 	"All these books look pretty predictable, you might have more luck at your library."
+    // ],
     [
 	"^(?:get |take |break |turn off |smash |hit |slap |grab |steal )(.*)(?:computer.*)",
 	"That seems like a very bad idea.",
 	"You head for the computer, but the man turns towards you and says 'Really?'"
     ],
-    [
-	"^(?:read |pick |choose| )(.*)(?:book.*)",
-	"You randomly take one off the shelf.  It turns out to be a second-rate ethnography from the 1980s.  You don't have time for this.",
-	"You randomly take one off the shelf. It appears to be in German.",
-	"You randomly take one off the shelf. It's a vintage copy of a book about packet switching. As if.",
-	"You browse the shelf and settle on a very dog-eared copy of Veblen's <em>The Theory of the Leisure Class</em>. Several hours later you emerge enlightened.",
-	"You browse the extensive collection and decide that the appropriate book would be Huizinga's <em>Homo Ludens</em>.  You settle in for a read."
-    ],
+    // [
+    // 	"^(?:read |pick |choose| )(.*)(?:book.*)",
+    // 	"You randomly take one off the shelf.  It turns out to be a second-rate ethnography from the 1980s.  You don't have time for this.",
+    // 	"You randomly take one off the shelf. It appears to be in German.",
+    // 	"You randomly take one off the shelf. It's a vintage copy of a book about packet switching. As if.",
+    // 	"You browse the shelf and settle on a very dog-eared copy of Veblen's <em>The Theory of the Leisure Class</em>. Several hours later you emerge enlightened.",
+    // 	"You browse the extensive collection and decide that the appropriate book would be Huizinga's <em>Homo Ludens</em>.  You settle in for a read."
+    // ],
     [
 	"^I (?:wish |would like )(?:I could |I was able to |to be able to )(.*)\.",
 	"What would it be like to be able to $1?"
@@ -251,7 +259,6 @@ var brain = [
 	"^(?:look |inspect |observe |see |view )(.*)(?:desk.*)",
 	"Not much has changed.",
 	"You see a computer, a coffee cup, and a piece of paper."
-	
     ],
    
     [
