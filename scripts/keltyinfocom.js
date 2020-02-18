@@ -43,21 +43,36 @@ var brain = [
 	"(Are you addressing the man? He seems to be working hard on something.  Or maybe he's just ignoring you)."
     ],
     [
-	"^(?:get |take |look |browse |buy )(.*)(?:book.*)",
+	"^(?:get |take |look |browse |buy )(.*)(?:book.*|participant.*)",
 	"The man turns around and a bit too eagerly asks, 'would you like me to sign that?' He grabs the book, scribbles something illegible in it and then hands it back to you, beaming. You can <a href='https://www.press.uchicago.edu/ucp/books/book/chicago/P/bo44520895.html'>buy them</a> if you want.",
 	"'That old thing?' The man says solicitously.  'Here, let me inscribe a copy for you' he says as he writes in the book and then hands it to you. They make a <a href='https://www.press.uchicago.edu/ucp/books/book/chicago/P/bo44520895.html'>great gift</a>." 
     ],
     [
-	"^(?:read )(.*)(?:book.*)", "Are you sure you want to do that?  Well, OK.  Several hours later you re-assess your priorities and decide that academia is not for you.",
+	"^(?:read )(.*)(?:book.*|participant.*)", "Are you sure you want to do that?  Well, OK.  Several hours later you re-assess your priorities and decide that academia is not for you.",
 	"You find yourself strangely engrossed and decide to visit your <a href='https://www.press.uchicago.edu/ucp/books/book/chicago/P/bo44520895.html'>favorite bookseller</a> in order to buy a copy."
     ],
     [
-    "^(?:steal )(.*)(?:book.*)",
+    "^(?:steal )(.*)(?:book.*|participant.*)",
 	"The man looks around, and then with a surreptitous air of complicity, hands you a piece of paper with an <a href='http://gen.lib.rus.ec/search.php?req=christopher+kelty&open=0&res=25&view=simple&phrase=1&column=def'>address on it</a>. "
+    ],
+    [
+	"^(?:.*participant.*)",
+	"Interested in the book are you... judging from the situation, it seems the man is eager that you do so."
+    ],
+    [ ".*yellow.*",
+      "Yes, it is an arresting color isn't it.  It is called #fef200."
     ],
     [
 	".*twitter.*",
 	"Oh, if you must, it is \@ckelty. But don't expect much."
+    ],
+    [
+	"(?:ask |talk )(.*)(?:typing.*)",
+	"It appears to be mostly gibberish.  Different windows are open with memos, some primitive javascript, a half-written paper, a tax form.  He is using emacs."
+    ],
+    [
+	"(.*emacs.*)",
+	"Excitedly, the man jumps up and rushes over to you.  With evident emotion, he embraces you and says, 'welcome, comrade!' and begins to relate in detail different aspects of his .emacs config file, orgmode philosophy, and various themes and customizations.  You die a silent, but mostly painless death."
     ],
     [
 	".*facebook.*",
